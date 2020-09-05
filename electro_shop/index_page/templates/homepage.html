@@ -2,6 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="icon" href="data:;base64,iVBORwOKGO=" />
+
+
+
 </head>
 <body>
 <link rel="stylesheet" type="text/css" href="../static/css/homepage.css">
@@ -121,12 +125,12 @@
             </a>
 
             <div class="dropdown-menu" id="Cur">
-                {% for i,k in liste%}
-                <ul>{{ i }}:{{k}}</ul>
+                {% for i,k in json_results.items %}
+                <ul>{{ i }}:{{ k }}</ul>
                 {% endfor %}
 
-
             </div>
+
         </li>
 
     </ul>

@@ -16,8 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from electro_shop.index_page.views import search_views
-
+from .index_page.views import search_views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', search_views, name='index')

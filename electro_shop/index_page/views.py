@@ -1,34 +1,42 @@
 from django.shortcuts import render
-import json
-import requests
+
 from .forms import SearchForm
 from .get_search_selenium import search_selenium
+from .Currency_json import get_json
 
 
 def search_views(request):
-    array1 = []
-    array2 = []
-    # search_result = None
+    search_result = None
+    json_results = None
 
     if request.method == 'POST':
         form = SearchForm(request.POST)
         if form.is_valid():
             form.save()
             search_result = search_selenium(form.cleaned_data['search'])
-            response = requests.get('https://api.exchangeratesapi.io/latest?base=USD%27')
-            data = json.loads(response.text)
-            rate = data['rates']
-            print(rate)
-            for x in rate:
-             array1.append(round(rate[x], 3))
-             array2.append(x)
+            json_results = get_json()
     else:
         form = SearchForm()
 
     context = {
-        'liste': array1,
-        'sth': array2,
-        'form':form,
-        'search_result':search_result,}
+        'form': form,
+        'search_result': search_result,
+        'json_data': json_results,}
 
     return render(request, 'homepage.html', context)
+
+#search_views()
+# def json_views(request):
+#     if request.method == 'POST':
+#         form = JsonForm(request.POST)
+#         if form.is_valid():
+#             form.save()
+#
+#     else:
+#         form = JsonForm()
+#
+#     context = {
+#         'form': form,
+#         'json_results': json_results,
+#     }
+#     return render(request, 'homepage.html', context)

@@ -1,6 +1,6 @@
 from django import forms
 
-from .models import SearchModel
+from .models import SearchModel,JsonModel
 
 
 class SearchForm(forms.ModelForm):
@@ -13,3 +13,9 @@ class SearchForm(forms.ModelForm):
         labels = {
             'search': ''
         }
+
+
+class JsonForm(forms.ModelForm):
+    class Meta:
+        model = JsonModel
+        fields = '__all__'
