@@ -2,8 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="icon" href="data:;base64,iVBORwOKGO=" />
-
+    <link rel="icon" href="data:;base64,iVBORwOKGO="/>
 
 
 </head>
@@ -42,7 +41,9 @@
             {{form.as_p}}
             <br>
             <button type="submit" class="btn btn-outline-success">What are you looking for?</button>
+            {{search_results}}
             <br>
+
         </form>
 
     </div>
@@ -126,16 +127,18 @@
 
             <div class="dropdown-menu" id="Cur">
                 {% for i,k in json_results.items %}
-                <ul>{{ i }}:{{ k }}</ul>
+                <p>{{ i }} : {{ k }}</p>
                 {% endfor %}
-
             </div>
 
         </li>
 
     </ul>
 </nav>
-
-
+<br>
+{% for j,m in search_result.items %}
+<p>{{ j }} : <img src="{{m}}"></p>
+{% endfor %}
+<br>
 </body>
 </html>
