@@ -36,16 +36,15 @@
     </div>
     <div class="col" id="kek">
         <form method="post">
-            {% csrf_token %}
-            <br>
-            {{form.as_p}}
-            <br>
-            <button type="submit" class="btn btn-outline-success">What are you looking for?</button>
-            {{search_results}}
-            <br>
-
+            <div class="input-group mb-3">
+                {% csrf_token %}
+                {{form.as_p}}
+                <div class="input-group-append">
+                    <button type="submit" class="btn btn-outline-success">Search</button>
+                </div>
+                {{search_results}}
+            </div>
         </form>
-
     </div>
 </div>
 <nav class="navbar navbar-expand-sm bg-light navbar-light">
@@ -136,8 +135,8 @@
     </ul>
 </nav>
 <br>
-{% for j,m in search_result.items %}
-<p>{{ j }} : <img src="{{m}}"></p>
+{% for m,l,i,n in search_result %}
+<p><b>{{ m }}</b> : <a href="{{ l }}" target="_blank"> {{n}} </a>: <img src="{{i}}"></p>
 {% endfor %}
 <br>
 </body>
