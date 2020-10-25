@@ -3,85 +3,79 @@
 <head>
     <meta charset="UTF-8">
     <link rel="icon" href="data:;base64,iVBORwOKGO="/>
-
-
-</head>
-<body>
-<link rel="stylesheet" type="text/css" href="../static/css/homepage.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/homepage.css">
 <!-- CSS only -->
 
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
       integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <!-- JS, Popper.js, and jQuery -->
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-        crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-        crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
-        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
-        crossorigin="anonymous"></script>
-<script src="https://kit.fontawesome.com/24e94f24b3.js" crossorigin="anonymous"></script>
 
-
-<div class="row">
-    <div class="col">
-
-        <h1 class="home-title">
+</head>
+<body>
+<div class="navbar" id="navbarID">
+    <ul>
+        <li class="headersubdiv">
+             <h1 class="home-title">
             <i class='fas fa-shopping-bag' style='font-size:36px;color:forestgreen'></i>
             <span>electro</span><span>shop</span>
         </h1>
-    </div>
-    <div class="col" id="kek">
-        <form method="post">
+        </li>
+        <li class="headersubdiv" id="kek">
+            <form method="post">
             <div class="input-group mb-3">
                 {% csrf_token %}
                 {{form.as_p}}
                 <div class="input-group-append">
-                    <button type="submit" class="btn btn-outline-success">Search</button>
+                    <button type="submit" class="btn btn-outline-success" id="button" >Search</button>
                 </div>
                 {{search_results}}
             </div>
         </form>
-    </div>
+        </li>
+    </ul>
 </div>
-<nav class="navbar navbar-expand-sm bg-light navbar-light">
-    <!-- Brand -->
-    <a class="navbar-brand" href="#">Home</a>
 
-    <!-- Links -->
+
+<nav class="navbar navbar-expand-sm bg-light navbar-light" id="navbarlist">
+
     <ul class="navbar-nav">
+         <a class="navbar-brand" href="#">Home</a>
         <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbardrop2" data-toggle="dropdown">
                 Discovery Boards
             </a>
-            <ul class="dropdown-menu multi-level" role="menu" aria-labelledby="dropdownMenu">
+
+
+            <ul class="dropdown-menu multi-level" id="dropdowndiv" role="menu" aria-labelledby="dropdownMenu">
+
                 <li class="dropdown-submenu">
                     <a class="dropdown-item" tabindex="-1" href="#">STM32<a/>
-                        <ul class="dropdown-menu">
+                        <ul class="dropdown-menu" id="items">
                             <li class="dropdown-item">
-                                <a class="dropdown-item" tabindex="-1" href="#">STM32F4</a>
+                                <a class="dropdown-item items" tabindex="-1" href="#">STM32F4</a>
                             </li>
                             <li class="dropdown-item">
-                                <a class="dropdown-item" tabindex="-1" href="#">STM32F3</a>
+                                <a class="dropdown-item items" tabindex="-1" href="#">STM32F3</a>
                             </li>
                             <li class="dropdown-item">
-                                <a class="dropdown-item" tabindex="-1" href="#">STM32F2</a>
+                                <a class="dropdown-item items" tabindex="-1" href="#">STM32F2</a>
                             </li>
                             <li class="dropdown-item">
-                                <a class="dropdown-item" tabindex="-1" href="#">STM32F1</a>
+                                <a class="dropdown-item items" tabindex="-1" href="#">STM32F1</a>
                             </li>
                             <li class="dropdown-item">
                                 <a class="dropdown-item" tabindex="-1" href="#">STM32F0</a>
                             </li>
                         </ul>
-                <li class="dropdown-divider"></li>
                 </a>
+                </li>
+                <li class="dropdown-divider"></li>
+
+
                 <li class="dropdown-submenu">
                     <a class="dropdown-item" tabindex="-1" href="#">STM8</a>
-                    <ul class="dropdown-menu">
+                    <ul class="dropdown-menu"id="items1">
                         <li class="dropdown-item">
                             <a class="dropdown-item" tabindex="-1" href="#">STM8AF</a>
                         </li>
@@ -103,7 +97,7 @@
             <a class="nav-link dropdown-toggle" href="#" id="navbardrop1" data-toggle="dropdown">
                 <i class="fas fa-microchip"></i>Components
             </a>
-            <ul class="dropdown-menu multi-level" role="menu" aria-labelledby="dropdownMenu">
+            <ul class="dropdown-menu multi-level" role="menu" aria-labelledby="dropdownMenu" id="componentsdropdown">
                 <li class="dropdown-submenu">
                 <li class="dropdown-item" tabindex="-1" href="#">Capacitor
                 <li/>
@@ -118,7 +112,6 @@
             </ul>
         </li>
 
-        <!-- Dropdown -->
         <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
                 Currency <i class="fas fa-dollar-sign"></i>
@@ -131,13 +124,44 @@
             </div>
 
         </li>
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="stores" data-toggle="dropdown">
+                <i class="fa fa-shopping-cart" aria-hidden="true"></i> Stores
+            </a>
+        </li>
+        <div class="dropdown-menu"id="shops">
 
+        </div>
     </ul>
 </nav>
-<br>
-{% for m,l,i,n in search_result %}
-<p><b>{{ m }}</b> : <a href="{{ l }}" target="_blank"> {{n}} </a>: <img src="{{i}}"></p>
+<div class="container">
+    {% for m,l,i,n,s in search_result %}
+    <div class="containerchilddiv">
+        <div class="picture">
+            <img src="{{i}}">
+        </div>
+        <div class="priceanditem">
+            <p><a href="{{ l }}" target="_blank">{{n}} </a> </p>
+             <p> {{s}} </p>
+            <p><b>{{ m }}</b>  </p>
+        </div>
+    </div>
+
 {% endfor %}
-<br>
+</div>
+
+
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+        crossorigin="anonymous"></script>
+<script src="https://kit.fontawesome.com/24e94f24b3.js" crossorigin="anonymous"></script>
+
 </body>
 </html>

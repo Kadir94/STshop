@@ -17,6 +17,7 @@ def search_selenium(elem):
     im = []
     links = []
     names = []
+    sitename=[]
 
     images = driver.find_elements_by_class_name('TL92Hc')
     price = driver.find_elements_by_class_name("Nr22bf")
@@ -32,8 +33,11 @@ def search_selenium(elem):
     for l in link:
         text = l.get_attribute("href")
         links.append(text)
+    for l1 in link:
+        text=l1.text
+        sitename.append(text)
     for image in images:
         img = image.get_attribute('src')
         im.append(img)
-    mydict = zip(money, links, im, names)
+    mydict = zip(money, links, im, names,sitename)
     return mydict

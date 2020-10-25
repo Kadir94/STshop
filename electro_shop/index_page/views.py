@@ -4,6 +4,7 @@ from .forms import SearchForm
 from .get_search_selenium import search_selenium
 from .Currency_json import get_json
 
+
 def search_views(request):
 
     search_result = None

@@ -8,7 +8,7 @@ class SearchForm(forms.ModelForm):
         model = SearchModel
         fields = '__all__'
         widgets = {
-            'search': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Search'})
+            'search': forms.TextInput(attrs={'id': 'searchinput', 'placeholder': 'Search'})
         }
         labels = {
             'search': ''
