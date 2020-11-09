@@ -1,8 +1,7 @@
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
-import re
 import time
-import itertools
+
 
 
 def search_selenium(elem):
@@ -19,11 +18,11 @@ def search_selenium(elem):
     names = []
     sitename=[]
 
-    images = driver.find_elements_by_class_name('TL92Hc')
-    price = driver.find_elements_by_class_name("Nr22bf")
-    link = driver.find_elements_by_class_name("hy2WroIfzrX__merchant-name")
-    name = driver.find_elements_by_class_name("xsRiS")
-    time.sleep(4)
+    images = driver.find_elements_by_xpath("//div/div/a/div/div/img[@src]")
+    price = driver.find_elements_by_xpath("//div/span/span/span[contains(text(), 'PLN')]")
+    link = driver.find_elements_by_xpath("//div/div/a[contains(@class,'merchant-name')][@href]")
+    name = driver.find_elements_by_xpath("//div/div/div/a/h3")
+    time.sleep(10)
     for n in name:
         text = n.text
         names.append(text)
@@ -39,5 +38,13 @@ def search_selenium(elem):
     for image in images:
         img = image.get_attribute('src')
         im.append(img)
-    mydict = zip(money, links, im, names,sitename)
+    price_list = [i for i in money if i]
+    links_list = [i for i in links if i]
+    im_list = [i for i in im if i]
+    names_list = [i for i in names if i]
+    mydict = zip(price_list, links_list, im_list, names_list,sitename)
+    driver.close()
     return mydict
+
+
+# search_selenium('STM32F4')
